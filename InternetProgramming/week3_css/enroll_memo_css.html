@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>메모 등록하기</title>
+<style>
+
+	body{
+	margin:20px 50px 50px;
+	}
+	body a{
+	text-decoration:none;
+	color:black;}
+	
+	#search{
+	position:absolute;
+	right:70px;
+	}
+	header{
+	padding:20px;
+	padding-left:30px;
+	}
+	header a{
+	font-weight:bold;
+	font-size:large;}
+	
+	#main{
+	display:table;
+	border:1px solid black;
+	margin:10px;
+	}
+	
+	#category{
+	display:table-cell;
+	width:200px;
+	height:700px;
+	border-right:1px solid black;
+	}
+	
+	#category ul{
+	padding-left:10px;
+	}
+	#category p{
+	padding-top:0px;
+	padding-bottom:5px;
+	margin-top:0px;
+	display:inline-block;
+	width:180px;
+	border-bottom:1px dashed gray;
+	}
+	
+	#category p #all{
+	position:relative;
+	left:10px;
+	font-weight:bold;
+	}
+	#category p #setting{
+	position:relative;
+	left:10px;
+	font-size:60%;
+	text-decoration:underline;
+	}
+	#category ul li{
+	margin-left:30px;
+	}
+	section{
+	padding:10px;
+	display:table-cell;
+	width:100%;
+	height:700px;
+	}
+	section p{
+	display:inline-block;
+	width:98%;
+	padding-bottom:10px;
+	border-bottom:1px dashed gray;
+	
+	}
+	section p a{
+	display:inline-block;
+	width:85%;
+	font-weight:bold;
+	}
+	section p input{
+	display:inline-block;
+	
+	}
+	
+
+	#field{
+	border:none;
+	width:95%; 
+	height:530px;
+	overflow-y:auto;
+	padding:15px;
+	background-color:#FAFABE; /*default*/
+	}
+	#field textarea, #field input[type=text]{
+	background-color:#FFFFFF6E;
+	border:none;
+	resize:none;
+	overflow:auto;
+	}
+</style>
+
+
+</head>
+<body>
+  <header>
+ 	<a href="#">홈</a>
+	<span id="search">
+		<input type="text" size="20">
+		<input type="button" value="검색">
+	</span>
+  </header>
+  
+  <hr>
+    <div id="main">
+<nav  id="category">
+	<ul>
+		<p><a href="#" id="all" >전체보기 (30)</a>
+  		<a href="#" id="setting">카테고리 관리</a></p>
+		<li><a href="#">카테고리 1 (5)</a></li>
+		<li><a href="#">카테고리 2 (15)</a></li>
+		<li><a href="#">카테고리 3 (10)</a></li>
+  </ul>
+</nav>
+<hr>
+<section>
+<form action="#" method="post">
+	<p>
+	<a>&nbsp;&nbsp;카테고리 1 (선택한 카테고리 제목이 보여질것)</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="submit" value="확인">
+	<input type="reset" value="취소"></p>
+	
+		<fieldset id="field">
+	<select name="category"> <!--메모를 등록할 카테고리 선택  -->
+		<option value="category1">카테고리1</option>
+		<option value="category2">카테고리2</option>
+		<option value="category3">카테고리3</option>		
+		
+	</select>
+		<input type="text" name="title" value="제목을 입력하세요 " size="45" maxlenght="45">&nbsp;
+		<label for="import">★</label>
+			<input type="radio" id="import" name="important" value="import">
+		<input type="color" name="color"><br><hr>
+		<textarea cols="80" rows="30" name="memoinput" stlye="resize:none;">내용을 입력하세요</textarea><br>
+		<input type="file" accept=".gif, .jpg, .png" multiple="multiple"><br>
+		 </fieldset>
+	</form>
+</section>
+</div>
+</body>
+</html>

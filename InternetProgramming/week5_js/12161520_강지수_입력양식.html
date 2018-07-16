@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table {border-collapse:collapse}
+table th {background-color:lightgray}
+</style>
+
+</head>
+<body>
+	<form action="#" method="get" name="my">
+	<table border="1" style="border-collapse:collapse">
+		<tr>
+			<th>ID</th>
+			<td><input type="text" name="id" ><span id="checkid"style="color:red;font-size:xx-small;"></span></td>
+		</tr>
+		<tr>
+			<th>PASSWORD</th>
+			<td><input type="password" name="password" ></td>
+		</tr>
+		<tr>
+			<th>성별</th>
+			<td><label for="male">남</label>
+			<input type="radio"  name="gender" id="male" value="male">
+		<label for="female">여</label>
+			<input type="radio"  name="gender" id="female" value="female"><br>
+			</td>
+		</tr>
+		<tr>
+			<th>전화번호</th>
+			<td><input type="tel" name="tel" >		</td>
+		</tr>
+		<tr>
+			<th>생년월일</th>
+			<td><input type="date" name = "birth" value="birth"></td>
+		</tr>
+		<tr>
+			<th>가족형제</th>
+			<td><label for="sister">언니/누나</label>
+			<input type="checkbox"  name="sibling" id="sister" value="sister">
+		<label for="brother">오빠/형</label>
+			<input type="checkbox"  name="sibling" id="brother" value="brother">
+		<label for="under">동생</label>
+			<input type="checkbox"  name="sibling" id="under" value="under">
+		<label for="none">없음</label>
+			<input type="checkbox"  name="sibling" id="none" value="none"></td>
+		</tr>
+		<tr>
+			<th>좋아하는 색깔</th>
+			<td><input type="color" name="favcolor" value="favcolor"></td>
+		</tr>
+		<tr>
+			<th>홈페이지 URL</th>
+			<td><input type="url" name="homeurl" ></td>
+		</tr>
+		<tr>
+			<th>이메일</th>
+			<td><input type="email" name="mail"></td>
+		</tr>
+		<tr>
+			<th>학년</th>
+			<td><select name="grade">
+			<option value="first">1학년</option>
+			<option value="second">2학년</option>
+			<option value="third">3학년</option>
+			<option value="fourth">4학년</option>
+		</select></td>
+		</tr>
+		<tr>
+			<th>자기소개</th>
+			<td><textarea cols="30" rows="5" name="intro"></textarea>
+		</td>
+		</tr>
+		<tr>
+	<td colspan="2" style="text-align:center">
+		<input type="submit" value="전송"onclick="showinput();">
+		<input type="reset" value="취소">
+	</td>
+</tr>
+			</table>	
+	</form>
+<script>
+function showinput(){
+	var print = "<input 내용>\n";
+	var temp = document.my.id.value;
+	if(temp.length==0){document.getElementById("checkid").innerHTML="아이디를 입력해주세요";return;}
+	print += "id : "+temp+" \n";
+	
+	temp = document.my.password.value;
+	if(temp.length==0)temp="입력안함";
+	print+= "password: "+ temp +"\n";
+
+	temp = document.my.gender.value;
+	if(temp.length==0)temp="입력안함";
+	print+= "성별: "+ temp +"\n";
+	
+	temp = document.my.tel.value;
+	if(temp.length==0)temp="입력안함";
+	print+= "전화번호: "+ temp +"\n";
+
+	
+	temp = document.my.birth.value;
+	if(temp.length==0)temp="입력안함";
+	print+= "생년월일: "+ temp +"\n";
+	
+	print+= "형제: "
+	var sib = document.my.sibling;
+	for(var i=0; i<sib.length; i++){
+		if(sib[i].checked==true){
+		print+= sib[i].value + " ";
+		}
+	}
+	
+	temp = document.my.favcolor.value;
+	if(temp.length==0)temp="입력안함";
+	print+= "\n좋아하는 색깔: "+ temp +"\n";
+	
+	temp = document.my.homeurl.value;
+	if(temp.length==0)temp="입력안함";
+	print+= "홈페이지: "+ temp +"\n";
+	
+	temp = document.my.mail.value;
+	if(temp.length==0)temp="입력안함";
+	print+= "이메일: "+ temp +"\n";
+	
+	temp = document.my.grade.value;
+	print+= "학년: "+ temp +"\n";
+	temp = document.my.intro.value;
+	
+	if(temp.length==0)temp="입력안함";
+	print+= "자기소개: "+ temp +"\n";
+	
+	
+	
+	alert(print);
+	
+}
+
+
+</script>
+</body>
+</html>

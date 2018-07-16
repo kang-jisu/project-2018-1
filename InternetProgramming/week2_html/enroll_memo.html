@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>메모 등록하기</title>
+</head>
+<body>
+  <header><a href="#">홈</a>
+<input type="text" size="10"><input type="button" value="검색">
+  </header>
+  <hr>
+<nav>
+	<ul><a href="#">전체보기</a>
+		<li><a href="#">카테고리 1</a></li>
+		<li><a href="#">카테고리 2</a></li>
+		<li><a href="#">카테고리 3</a></li>
+  </ul>
+  <a href="#">카테고리 관리</a>
+</nav>
+<hr>
+<article>
+<form action="#" method="post">
+<a>카테고리 1 (선택한 카테고리 제목이 보여질것)</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<input type="submit" value="확인">
+	<input type="reset" value="취소"><br>
+	
+	<fieldset><legend>등록하기</legend>
+	<select name="category"> <!--메모를 등록할 카테고리 선택  -->
+		<option value="category1">카테고리1</option>
+		<option value="category2">카테고리2</option>
+		<option value="category3">카테고리3</option>		
+		
+	</select><br>
+		<input type="text" name="title" value="제목을 입력하세요 " size="30">&nbsp;
+		<label for="import">★</label>
+			<input type="radio" id="import" name="important" value="import">
+		<input type="color" name="color"><br>
+		<textarea cols="50" rows="10" name="memoinput">내용을 입력하세요</textarea><br>
+		<input type="file" accept=".gif, .jpg, .png" multiple="multiple"><br>
+	</fieldset>
+
+	</form>
+</article>
+</body>
+</html>

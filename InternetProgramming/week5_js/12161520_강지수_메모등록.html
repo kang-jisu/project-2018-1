@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>메모 등록하기</title>
+<style>
+
+	body{
+	margin:20px 50px 50px;
+	}
+	body a{
+	text-decoration:none;
+	color:black;}
+	
+	#search{
+	position:absolute;
+	right:70px;
+	}
+	header{
+	padding:20px;
+	padding-left:30px;
+	}
+	header a{
+	font-weight:bold;
+	font-size:large;}
+	
+	#main{
+	display:table;
+	border:1px solid black;
+	margin:10px;
+	}
+	
+	#category{
+	display:table-cell;
+	width:200px;
+	height:700px;
+	border-right:1px solid black;
+	}
+	
+	#category ul{
+	padding-left:10px;
+	}
+	#category p{
+	padding-top:0px;
+	padding-bottom:5px;
+	margin-top:0px;
+	display:inline-block;
+	width:180px;
+	border-bottom:1px dashed gray;
+	}
+	
+	#category p #all{
+	position:relative;
+	left:10px;
+	font-weight:bold;
+	}
+	#category p #setting{
+	position:relative;
+	left:10px;
+	font-size:60%;
+	text-decoration:underline;
+	}
+	#category ul li{
+	margin-left:30px;
+	}
+	section{
+	padding:10px;
+	display:table-cell;
+	width:100%;
+	height:700px;
+	}
+	section p{
+	display:inline-block;
+	width:98%;
+	padding-bottom:10px;
+	border-bottom:1px dashed gray;
+	
+	}
+	section p a{
+	display:inline-block;
+	width:90%;
+	font-weight:bold;
+	}
+	section p input{
+	display:inline-block;
+	
+	}
+	#field{
+	width:95%; 
+	height:530px;
+	overflow-y:auto;
+	padding:15px;
+	background-color:#FAFABE; /*default*/
+	box-shadow:3px 3px lightgray;
+	border:none;
+	
+	}
+	#field textarea, #field input[type=text]{
+	background-color:#FFFFFF6E;
+	border:none;
+	resize:none;
+	overflow:auto;
+	}
+	#bar {
+	position:absolute;
+	background-color:white;
+	box-shadow:3px 3px lightgray;
+	visibility:hidden;
+	
+	}
+	#bar ul{
+	margin:15px 5px 10px 5px;
+	padding:0px 10px 0px 10px;}
+	#bar li{
+	box-shadow:1px 1px lightgray;
+	display:inline-block;
+	width:20px;
+	height:15px;
+	border-radius: 10px;
+	cursor:pointer
+	}
+	#exit{
+	 position:absolute;
+	 right:0px;
+	 top:0px;
+	 border:none;
+	 background-color:white;
+	 display:inline;
+	 font-size:xx-small;}
+</style>
+
+
+</head>
+<body>
+  <header>
+ 	<a href="./index.html">홈</a>
+	<span id="search">
+		<input type="text" size="20">
+		<input type="button" value="검색">
+	</span>
+  </header>
+  
+  <hr>
+    <div id="main">
+<nav  id="category">
+	<ul>
+		<p><a href="#" id="all" >전체보기 (30)</a>
+  		<a href="#" id="setting">카테고리 관리</a></p>
+		<li><a href="#">카테고리 1 (5)</a></li>
+		<li><a href="#">카테고리 2 (15)</a></li>
+		<li><a href="#">카테고리 3 (10)</a></li>
+  </ul>
+</nav>
+<hr>
+<section>
+<form action="#" method="post" name="enroll">
+	<p>
+	<a>&nbsp;&nbsp;메모 등록하기</a>&nbsp;&nbsp;
+				<input type="submit"  value="확인" onclick="showcontent()">
+	<input type="reset" value="취소"></p>
+	
+		<fieldset id="field">
+	<select name="category"> <!--메모를 등록할 카테고리 선택  -->
+		<option value="category1">카테고리1</option>
+		<option value="category2">카테고리2</option>
+		<option value="category3">카테고리3</option>		
+		
+	</select>
+		<input type="text" name="title" placeholder="제목을 입력하세요 " size="45" maxlength="45" >&nbsp;
+		<label for="import">★</label>
+			<input type="radio" name="important" id="important" name="important" value="important">
+		<div id="barparent" style="display:inline-block; ">
+			<input type="button" name="color" value="색상선택" onclick="showbox();">
+			<div id="bar" >
+			<input type="button" id="exit" value="x" onclick="hiddenbox();"> 
+				<ul style="list-style-type:none;" id="colorlist">
+					<li id="FAFABE" style="background-color:#FAFABE" value="FAFABE" onclick="changebackground(this.id);"></li> <!-- yellow -->
+					<li id="D5C2EE6e" style="background-color:#D5C2EE6e" value="D5C2EE6e" onclick="changebackground(this.id);"></li><!-- blue-->
+					<li id="CCFF906e" style="background-color:#CCFF906e" onclick="changebackground(this.id);"></li><!-- green -->
+					<li id="FFFFFF" style="background-color:#FFFFFF" onclick="changebackground(this.id);"></li><br><!-- white -->
+					<li id="E1F6FA" style="background-color:#E1F6FA" onclick="changebackground(this.id);"></li><!-- purple -->
+					<li id="FFECB36e"style="background-color:#FFECB36e" onclick="changebackground(this.id);"></li><!-- orange -->
+					<li id="FFCDD26e"style="background-color:#FFCDD26e" onclick="changebackground(this.id);"></li><!-- pink -->
+					<li id="EEEEEE"style="background-color:#EEEEEE" onclick="changebackground(this.id);"></li><!-- gray-->	
+				</ul>
+				</div>
+		</div>
+		<br><hr>
+		<textarea cols="80" rows="30" name="memoinput" style="resize:none;" placeholder="내용을 입력하세요"></textarea><br>
+		<input type="file" accept=".gif, .jpg, .png" multiple="multiple" name="file"><br>
+		 </fieldset>
+	</form>
+</section>
+</div>
+
+<script>
+
+var backcolor = "#FAFABE";
+function hidetitle(){
+	document.enroll.title.value="";
+}
+function hidecontent(){
+	document.enroll.memoinput.value="";
+}
+function showbox(){
+	document.getElementById("bar").style.visibility="visible";
+	/*if($("#bar").css("visibility")=="hidden"){
+		$("#bar").css("visibility","visible");
+	}else{
+
+		$("#bar").css("visibility","hidden");
+	}*/
+}
+function hiddenbox(){
+	document.getElementById("bar").style.visibility="hidden";
+}
+
+function changebackground(color){
+	var s="#";
+		s+=color;
+	document.getElementById("field").style.backgroundColor=s;
+	backcolor=s;
+}
+function showcontent(){
+	var print = "<등록한 내용>\n";
+	var temp = document.enroll.category.value;
+	print += "카테고리 : "+temp+" \n";
+	temp = document.enroll.title.value;
+	if(temp.length==0){ temp="제목없음"}
+	print += "제목 : "+temp+" \n";
+	temp = document.enroll.important;
+	print += "중요설정: ";
+	if(temp.checked){
+		print+="설정됨\n"
+	}
+	else{
+		print+="설정안됨\n"
+	}
+	temp = backcolor;
+	print += "배경색 : "+temp+" \n";
+	temp = document.enroll.memoinput.value;
+	if(temp.length==0){ temp="내용없음";}
+	print += "입력한내용 : "+temp+" \n";
+	temp = document.enroll.file.value;
+	if(temp.length==0){ temp="선택된 파일 없음"}
+	print += "파일 : "+temp+" \n";
+	
+	var today = new Date();
+	var dd=today.getDate();
+	var mm=today.getMonth()+1;
+	var yy=today.getFullYear();
+	
+	if(dd<10){
+		dd='0'+dd;
+	}
+	if(mm<10){
+		mm='0'+mm;
+	}
+	today=yy+'/'+mm+'/'+dd;
+	print+="작성일: "+today+"\n";
+	
+	alert(print);
+}
+
+</script>
+</body>
+</html>

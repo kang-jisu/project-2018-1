@@ -1,0 +1,91 @@
+mysql -u admin -p mydb
+
+mysql> show tables;
+
+mysql> CREATE TABLE member(
+    -> idx INT not null auto_increment,
+    -> id CHAR(8) CHARACTER SET utf8 NOT NULL,
+    -> name VARCHAR(12) DEFAULT "han",
+    -> pwd TEXT
+    -> ,
+    -> primary key (idx));
+
+mysql> desc member;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| idx   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| id    | char(8)     | NO   |     | NULL    |                |
+| name  | varchar(12) | YES  |     | han     |                |
+| pwd   | text        | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+
+mysql> insert into member (id,name,pwd) values('g100','Gil-Dong','1111');
+
+mysql> select * from member;
++-----+------+----------+------+
+| idx | id   | name     | pwd  |
++-----+------+----------+------+
+|   1 | g100 | Gil-Dong | 1111 |
++-----+------+----------+------+
+mysql> select * from member;
++-----+------+----------+------+
+| idx | id   | name     | pwd  |
++-----+------+----------+------+
+|   1 | g100 | Gil-Dong | 1111 |
+|   2 | g200 | 슈퍼맨   | 1111 |
+|   3 | g300 | INHA     | 2222 |
+|   4 | g400 | 강지수   | 333  |
+|   5 | g500 | 원더우먼 | 4444 |
++-----+------+----------+------+
+
+
+mysql> update member set name='철수' where idx='4';
+
+mysql> replace into member(id,name) values('g700','incheon');
+mysql> delete from member where idx=6;
+
+mysql> create table ext(
+    -> idx int not null,
+    -> address text character set utf8,
+    -> phone varchar(12) default '000000000000',
+    -> primary key (idx));
+
+mysql> insert into ext(idx,address,phone) values (2,'인천','01011112222');
+
+mysql> insert into ext(idx,address,phone) values (6,'부산','01011112222');
+
+mysql> select * from member,ext;//full join (=mysql> select * from member join ext;)
+
+
+//inner join
+mysql> select * from member inner join ext using(idx);
++-----+------+--------+------+---------+-------------+
+| idx | id   | name   | pwd  | address | phone       |
++-----+------+--------+------+---------+-------------+
+|   2 | g200 | 슈퍼맨 | 1111 | 인천    | 01011112222 |
+|   3 | g300 | INHA   | 2222 | 서울    | 01023412222 |
++-----+------+--------+------+---------+-------------+
+mysql> select * from member, ext where member.idx = ext.idx;
++-----+------+--------+------+-----+---------+-------------+
+| idx | id   | name   | pwd  | idx | address | phone       |
++-----+------+--------+------+-----+---------+-------------+
+|   2 | g200 | 슈퍼맨 | 1111 |   2 | 인천    | 01011112222 |
+|   3 | g300 | INHA   | 2222 |   3 | 서울    | 01023412222 |
++-----+------+--------+------+-----+---------+-------------+
+
+
+mysql> select * from member left join ext using(idx);//left join
+
+mysql> select * from member left outer join ext on member.idx=ext.idx;
+
+
+
+mysql> select * from member right join ext using(idx);
+
+?
+
+
+
+

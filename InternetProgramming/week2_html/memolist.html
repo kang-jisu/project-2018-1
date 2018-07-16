@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>메모 리스트</title>
+</head>
+<body>
+  <header><a href="#">홈</a>
+<input type="text" size="10"><input type="button" value="검색">
+  </header>
+  <hr>
+<nav>
+	<ul><a href="#">전체보기</a>
+		<li><a href="#">카테고리 1</a></li>
+		<li><a href="#">카테고리 2</a></li>
+		<li><a href="#">카테고리 3</a></li>
+  </ul>
+  <a href="#">카테고리 관리</a>
+</nav>
+<hr>
+<article>
+<form action="#" method="post">
+	<a>카테고리 1 (선택한 카테고리 제목이 보여질것)</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<input type="button" name="enroll" value="등록">
+	<input type="button" name="delete "value="삭제"><br>
+	
+	<fieldset><legend>메모리스트</legend>
+			<table border="1" style="border-collapse:collapse; width:200px; display:inline-table;">
+				<tr style="text-align:center">
+					<td><input type="checkbox" value="check"></td>
+					<td id="number">1</td>
+					<td id="date">2018.03.10</td>
+					<td id="import">★</td>
+				</tr>
+				<tr height="100px">
+					<td colspan="4"><a href="#">메모의 제목이 보여집니다</a></td>
+				</tr>
+			</table>&nbsp;
+			
+			<table border="1" style="border-collapse:collapse; width:200px; display:inline-table;">
+				<tr style="text-align:center">
+					<td><input type="checkbox" value="check"></td>
+					<td id="number">2</td>
+					<td id="date">2018.03.10</td>
+					<td id="import">★</td>
+				</tr>
+				<tr height="100px">
+					<td colspan="4"><a href="#">카테고리 내의 메모 개수에따라 추가,삭제됩니다</a></td>
+				</tr>
+      </table>&nbsp;
+      <table border="1" style="border-collapse:collapse; width:200px; display:inline-table;">
+          <tr style="text-align:center">
+            <td><input type="checkbox" value="check"></td>
+            <td id="number">3</td>
+            <td id="date">2018.03.10</td>
+            <td id="import">★</td>
+          </tr>
+          <tr height="100px">
+            <td colspan="4"><a href="#">제목을 누르면 메모의 내용을 보여주는 페이지로 이동합니다.
+              </a></td>
+          </tr>
+        </table>&nbsp;
+      <table border="1" style="border-collapse:collapse; width:200px; display:inline-table;background-color:#FAFABE;">
+				<tr style="text-align:center">
+					<td><input type="checkbox" value="check"></td>
+					<td id="number">4</td>
+					<td id="date">2018.03.10</td>
+					<td id="import">★</td>
+				</tr>
+				<tr height="100px">
+					<td colspan="4"><a href="#">지정한 메모의 배경색이 나타납니다.</a></td>
+				</tr>
+			</table>
+		
+	</fieldset>
+
+	</form>
+</article>
+</body>
+</html>

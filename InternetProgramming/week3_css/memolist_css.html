@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>메모 리스트</title>
+<style>
+
+	body{
+	margin:20px 50px 50px;}
+	
+	body a{
+	text-decoration:none;
+	color:black;}
+	
+	#search{
+	position:absolute;
+	right:70px;
+	}
+	header{
+	padding:20px;
+	padding-left:30px;
+	}
+	header a{
+	font-weight:bold;
+	font-size:large;
+}
+	
+	#main{
+	display:table;
+	border:1px solid black;
+	margin:10px;
+	}
+	
+	#category{
+	display:table-cell;
+	width:200px;
+	height:600px;
+	border-right:1px solid black;
+	}
+
+	
+	#category ul{
+	padding-left:10px;
+	}
+	#category p{
+	padding-top:0px;
+	padding-bottom:5px;
+	margin-top:0px;
+	display:inline-block;
+	width:180px;
+	border-bottom:1px dashed gray;
+	}
+	
+	#category p #all{
+	position:relative;
+	left:10px;
+	font-weight:bold;
+	}
+	#category p #setting{
+	position:relative;
+	left:10px;
+	font-size:60%;
+	text-decoration:underline;
+	}
+	#category ul li{
+	margin-left:30px;
+	}
+	section{
+	padding:10px;
+	display:table-cell;
+	width:100%;
+	height:600px;
+	}
+	section p{
+	display:inline-block;
+	width:98%;
+	padding-bottom:10px;
+	border-bottom:1px dashed gray;
+	
+	}
+	section p a{
+	display:inline-block;
+	width:85%;
+	font-weight:bold;
+	}
+	section p input{
+	display:inline-block;
+	
+	}
+	
+	#field{
+	border:none;
+	width:95%; 
+	height:520px;
+	overflow-y:auto;
+	padding:15px;
+	}
+	table{
+	width:250px;
+	margin:10px;
+	border:none;
+	box-shadow:3px 3px lightgray;
+	text-align:center;
+	font-size:1.2em;
+	border-collapse:collapse;
+	display:inline-table;
+	background-color:#FAFABE; /*default*/
+	}
+	
+	table #content{
+	height:200px;
+	padding:5px;
+	}
+	
+	#content a{
+	font-size:20px;
+	text-aling:center;
+	color:black;}
+	
+</style>
+
+</head>
+<body>
+  <header>
+ 	<a href="#">홈</a>
+	<span id="search">
+		<input type="text" size="20">
+		<input type="button" value="검색">
+	</span>
+  </header>
+  
+  <hr>
+  <div id="main">
+<nav  id="category">
+	<ul>
+		<p><a href="#" id="all" >전체보기 (30)</a>
+  		<a href="#" id="setting">카테고리 관리</a></p>
+		<li><a href="#">카테고리 1 (5)</a></li>
+		<li><a href="#">카테고리 2 (15)</a></li>
+		<li><a href="#">카테고리 3 (10)</a></li>
+  </ul>
+</nav>
+<hr>
+<section>
+	<form action="#" method="post">
+		<p>
+			<a>&nbsp;&nbsp;카테고리 1 (선택한 카테고리 제목이 보여질것)</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" name="enroll" value="등록">
+			<input type="button" name="delete "value="삭제">
+		</p>
+		<fieldset id="field">
+	<!-- <fieldset style="width:90%; height:500px; border-width:1px"><legend>메모리스트</legend> -->
+				
+				<table>
+				<tr style="border-bottom:0.5px solid darkgray" >
+					<td><input type="checkbox" value="check"></td>
+					<td id="number">1</td>
+					<td id="date">2018.03.10</td>
+					<td id="import">★</td>
+				</tr>
+				<tr ">
+					<td id="content"colspan="4"><a href="#">제목이 보여집니다 (제목은 25자이내)</a></td>
+				</tr>
+			</table>
+			
+			<table>
+				<tr style="border-bottom:0.5px solid darkgray">
+					<td><input type="checkbox" value="check"></td>
+					<td id="number">2</td>
+					<td id="date">2018.03.10</td>
+					<td id="import">★</td>
+				</tr>
+				<tr >
+					<td id="content"colspan="4"><a href="#">카테고리 내의 메모 개수에따라 추가,삭제됩니다</a></td>
+				</tr>
+      </table>
+      
+			<table >
+				<tr style="border-bottom:0.5px solid darkgray">
+					<td><input type="checkbox" value="check"></td>
+					<td id="number">2</td>
+					<td id="date">2018.03.10</td>
+					<td id="import">★</td>
+				</tr>
+				<tr >
+					<td id="content"colspan="4"><a href="#">카테고리 내의 메모 개수에따라 추가,삭제됩니다</a></td>
+				</tr>
+      </table>
+      
+      <table style="background-color:#D5C2EE6e;">
+          <tr style="border-bottom:0.5px solid darkgray">
+            <td><input type="checkbox" value="check"></td>
+            <td id="number">3</td>
+            <td id="date">2018.03.10</td>
+            <td id="import">★</td>
+          </tr>
+          <tr >
+            <td id="content"colspan="4"><div id="con"><a href="#">제목을 누르면 메모의 내용을 보여주는 페이지로 이동합니다. </a></div></td>
+          </tr>
+        </table>
+      <table style="background-color:#E1F6FA;">
+				<tr style="border-bottom:0.5px solid darkgray">
+					<td><input type="checkbox" value="check"></td>
+					<td id="number">4</td>
+					<td id="date">2018.03.10</td>
+					<td id="import">★</td>
+				</tr>
+				<tr >
+					<td id="content"colspan="4"><a href="#">지정한 메모의 배경색이 나타납니다.(기본은노랑)</a></td>
+				</tr>
+			</table>
+		</fieldset>
+<!--  </fieldset>-->	
+
+	</form>
+</section>
+</div>
+</body>
+</html>
